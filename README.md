@@ -65,7 +65,7 @@ npm i >> to install packages
 
 ng serve >> open application 
 
-ng build --configuration production
+ng build --configuration production >> build ti get dist file
 npx http-server ./dist/expense-tracker-lite/browser -p 8080
 
 to run service worker offline (cashe data) 
