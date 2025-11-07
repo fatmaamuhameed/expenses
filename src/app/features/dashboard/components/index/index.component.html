@@ -1,0 +1,66 @@
+<section class="dashboard">
+  <div class="h-50 bg-blue-700 flex justify-between p-3">
+    <div class="flex justify-between">
+      <p-avatar
+        image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png"
+        class="mr-2"
+        size="large"
+        shape="circle"
+      />
+
+      <div>
+        <p>Good Morning</p>
+        <p>Shihab Rahman</p>
+      </div>
+    </div>
+    <div>
+      <p-select
+        [options]="filterby"
+        [(ngModel)]="selectedCity"
+        optionLabel="name"
+        placeholder="Filter By"
+        class="w-full md:w-56"
+      />
+    </div>
+  </div>
+
+  <div class="small-container flex flex-col gap-2">
+    <div>
+      <div class="flex items-center">
+        <span>Total Balance</span>
+        <i class="fa-solid fa-angle-up"></i>
+      </div>
+      <h6>$ 2,548.00</h6>
+    </div>
+
+    <div class="flex items-center justify-between">
+      <div>
+        <div class="flex items-center">
+          <i class="fa-solid fa-circle-arrow-down mx-1"></i>
+          <span>Income</span>
+        </div>
+        <h6>$ 2,548.00</h6>
+      </div>
+
+      <div>
+        <div class="flex items-center">
+          <i class="fa-solid fa-circle-arrow-up mx-1"></i>
+          <span>Expenses</span>
+        </div>
+        <h6>$ 1,548.00</h6>
+      </div>
+    </div>
+
+    <!-- <div>total Balance 3242432$ income Expenses</div> -->
+  </div>
+</section>
+<app-recent-expenses></app-recent-expenses>
+
+<div class="relative p-6">
+  <p-button
+    icon="pi pi-plus"
+    class="fixed bottom-6 left-1/2 -translate-x-1/2"
+    [rounded]="true"
+    (click)="addExpenses()"
+  />
+</div>

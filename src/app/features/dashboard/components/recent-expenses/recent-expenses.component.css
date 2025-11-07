@@ -1,0 +1,17 @@
+.text-blue {
+  color: #5c7ad5;
+}
+
+.category {
+  background: #e6e9ed;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+::ng-deep .p-paginator button {
+  background-color: transparent !important;
+}

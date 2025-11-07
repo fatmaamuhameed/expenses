@@ -1,0 +1,98 @@
+<div class="min-h-screen flex justify-center items-center bg-gray-50">
+  <div class="bg-white p-8 rounded-2xl shadow-lg w-full max-w-lg">
+    <h2 class="text-2xl font-semibold mb-6 text-center text-gray-800">Add Expense</h2>
+
+    <form
+      [formGroup]="addExpenseForm"
+      (ngSubmit)="onSave()"
+      class="flex flex-col gap-5 max-h-[100vh] overflow-y-auto"
+    >
+      <div class="flex flex-col gap-2">
+        <label class="font-medium mb-1 block">Category</label>
+        <p-select
+          [options]="categories"
+          formControlName="category"
+          placeholder="Select Category"
+        ></p-select>
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <label class="font-medium mb-1 block">Amount</label>
+        <p-inputNumber
+          formControlName="amount"
+          mode="decimal"
+          [minFractionDigits]="2"
+          placeholder="Enter amount"
+          class="w-full"
+        ></p-inputNumber>
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <label class="font-medium mb-1 block">Currency</label>
+        <p-select
+          (onChange)="selectCurrancy($event)"
+          [options]="currencies"
+          formControlName="currency"
+          optionLabel="label"
+          placeholder="Select Currency"
+        ></p-select>
+      </div>
+
+      <!-- Date -->
+      <div class="flex flex-col gap-2 expense-form">
+        <div class="">
+          <label class="font-medium block mb-1"> Date</label>
+          <p-datepicker
+            [iconDisplay]="'input'"
+            placeholder="11/06/2025"
+            formControlName="date"
+            [showIcon]="true"
+            inputId="icondisplay"
+            class="w-full"
+          />
+        </div>
+      </div>
+
+      <div>
+        <label class="font-medium mb-1 block">Upload Receipt</label>
+        <div class="p-inputgroup w-full">
+          <div class="relative w-full">
+            <i class="pi pi-camera text-lg absolute right-3 top-3"></i>
+            <input
+              type="file"
+              placeholder="Upload receipt..."
+              class="w-full"
+              formControlName="receipt"
+              pInputText
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- <div>
+        <label class="block text-gray-700 font-medium mb-2">Categories</label>
+
+        <div class="grid grid-cols-3 sm:grid-cols-4 gap-4 text-center">
+          @for (item of categoriesIcons; track $index) {
+          <div (click)="selectCategory(item)">
+            <div class="category relative text-center">
+              <i [class]="item.icon"></i>
+            </div>
+            <span class="text-xs font-medium mt-1 text-gray-700">{{ item.label }}</span>
+          </div>
+          }
+        </div>
+      </div> -->
+
+      <p-button
+        label="Save"
+        type="submit"
+        [disabled]="!addExpenseForm.valid"
+        class="w-full mt-4"
+        (click)="addNew()"
+      ></p-button>
+    </form>
+    <div>original Amount : {{ originalAmount }}</div>
+    <div>converted Amount : {{ convertedAmount }} $</div>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+<div class="card mt-10 pt-5">
+  <div class="flex justify-end mb-4 pt-5">
+    <p-button c label="Export PDF" icon="pi pi-file-pdf" (onClick)="exportToPDF()"></p-button>
+  </div>
+  <p-dataview #dv [value]="products()">
+    <ng-template #list let-items>
+      <div class="grid grid-cols-12 gap-4 grid-nogutter">
+        @for (item of items; track item.id) {
+        <div class="col-span-12">
+          <div class="flex flex-col sm:flex-row sm:items-center p-6 gap-4">
+            <div class="category relative">
+              <i [class]="item.icon"></i>
+              <!-- <fa-icon [icon]="item.image" /> -->
+            </div>
+            <div class="flex flex-col md:flex-row justify-between md:items-center flex-1 gap-6">
+              <div class="flex flex-row md:flex-col justify-between items-start gap-2">
+                <div>
+                  <div class="text-lg font-medium text-surface-900 dark:text-surface-0 mt-2">
+                    {{ item.category }}
+                  </div>
+                  <span class="font-medium text-secondary text-sm">{{ item.description }}</span>
+                </div>
+              </div>
+              <div class="flex flex-col md:items-end gap-8">
+                <span class="text-xl font-semibold text-surface-900 dark:text-surface-0">{{
+                  '- ' + '$' + item.price
+                }}</span>
+                <div class="flex flex-row-reverse md:flex-row gap-2">
+                  {{ item.date | date : 'medium' }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        }
+      </div>
+    </ng-template>
+  </p-dataview>
+  <div class="card flex justify-center pagination">
+    <p-paginator
+      (onPageChange)="onPageChange($event)"
+      [first]="first"
+      [rows]="rows"
+      [totalRecords]="120"
+      [rowsPerPageOptions]="[10, 20, 30]"
+    />
+  </div>
+</div>

@@ -1,0 +1,17 @@
+.small-container {
+  background: #496ef3;
+  width: 96%;
+  position: absolute;
+  padding: 30px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  right: 2%;
+  /* bottom: 0; */
+  top: 15%;
+  /* z-index: 999999999999; */
+}
+
+.dashboard {
+  color: white;
+}
